@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--xmlns="http://mybatis.org/schema/mybatis-mapper"-->
+<mapper namespace="timchat.beta.Mapper.UserMapper">
+    <select id="findAll" resultType="User">
+        select * from user
+    </select>
+
+    <select id="findByName" resultType="User">
+        select * from user where UserName=#{username}
+    </select>
+
+    <select id="findPswByName" resultType="String">
+        select PassWord from user where UserName = #{username}
+    </select>
+
+    <insert id="save">
+        insert into user(UserName,PassWord) value (#{username},#{password})
+    </insert>
+
+    <select id="findId" resultType="User">
+        select * from user where ID =#{id}
+    </select>
+</mapper>
